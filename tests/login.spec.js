@@ -11,7 +11,7 @@ exports.LoginPage = class LoginPage {
   async gotoLoginPage() {
     await this.page.goto("https://talent500.co/auth/signin");
   }
-  async login(username, password) {
+  async loginIntoApplication(username, password) {
     await this.username_field.fill(username);
     await this.password_field.fill(password);
     await this.login_button.click();
@@ -19,7 +19,7 @@ exports.LoginPage = class LoginPage {
   async clickLoginButton() {
     await this.login_button.click();
   }
-  async homePage(homeContent) {
+  async verifyUserInHomePage(homeContent) {
     const text = await this.page.locator('//div[@id="progress-bar"]').textContent();
     expect(text).toContain(homeContent);
   }

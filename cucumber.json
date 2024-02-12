@@ -3,6 +3,7 @@
         "paths":["tests/features/"],
         "dryRun": false,
         "publishQuiet":true,
-        "require":["tests/step_definations/*.js","./hooks/*.js"]
+        "require":["tests/step_definations/*.js","./hooks/*.js"],
+        "format":["html:cucumber-report.html"]
     }
 }

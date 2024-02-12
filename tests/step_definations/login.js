@@ -16,7 +16,7 @@ Given("User navigates to the application", async () => {
 When(
   "I enter the username {string} and password as {string}",
   async (username, password) => {
-    loginPage.login(username, password);
+    loginPage.loginIntoApplication(username, password);
   }
 );
 
@@ -25,7 +25,7 @@ When("I click on login button", async () => {
 });
 
 Then("User should logged in successfully", async () => {
-  loginPage.homePage("PROFILE");
+  loginPage.verifyUserInHomePage("PROFILE");
 });
 Then("Logout from the application", async () => {
   loginPage.logoutFromApplication();
