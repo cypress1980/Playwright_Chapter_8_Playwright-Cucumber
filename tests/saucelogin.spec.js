@@ -1,4 +1,5 @@
 const { chromium, expect } = require("@playwright/test");
+let browser
 exports.SauceLoginPage = class SauceLoginPage {
   constructor(page, expect) {
     this.page = page;
@@ -6,12 +7,11 @@ exports.SauceLoginPage = class SauceLoginPage {
     this.password = this.page.locator('[data-test="password"]');
     this.login_button = this.page.locator('[data-test="login-button"]');
     this.addCart_button = this.page.locator('[data-test="add-to-cart-sauce-labs-backpack"]');
+    this.homePage_Content = this.page.locator('//span[@class="title"]');
     this.removeThe_Product = this.page.locator('[data-test="remove-sauce-labs-backpack"]');
     this.humBurger = this.page.locator('[id="react-burger-menu-btn"]');
     this.addCart_button = this.page.locator('[data-test="add-to-cart-sauce-labs-backpack"]');
     this.logOut_button = this.page.locator('[id="logout_sidebar_link"]');
-
-    //[id="logout_sidebar_link"]
   }
   async gotoLoginPage() {
     await this.page.goto("https://www.saucedemo.com/");
@@ -19,7 +19,6 @@ exports.SauceLoginPage = class SauceLoginPage {
   async loginIntoApplication(username, password) {
     await this.username.fill(username);
     await this.password.fill(password);
-    //await this.login_button.click();
   }
   async clickLoginButton() {
     await this.login_button.click();
@@ -34,12 +33,11 @@ exports.SauceLoginPage = class SauceLoginPage {
     await this.humBurger.click();
   }
   async verifyUserInHomePage(homeContent) {
-    const text = await this.page.locator('//span[@class="title"]').textContent();
+    const text = await this.homePage_Content.textContent();
     expect(text).toContain(homeContent);
   }
   async logoutFromApplication() {
     await this.logOut_button.click();
-    //await expect(this.login_button).toBeVisible();
   }
   async userInloginPage() {
     await expect(this.login_button).toBeVisible()
