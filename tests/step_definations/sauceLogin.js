@@ -40,4 +40,5 @@ Then("Logout from the site", async () => {
 });
 Then("User should be in login page", async () => {
   loginPage.userInloginPage();
+  await browser.close();
 });

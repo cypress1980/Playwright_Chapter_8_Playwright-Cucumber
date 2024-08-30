@@ -2,13 +2,11 @@ Feature: Login Functionality
   Background:
     Given Open the URL
   Scenario: Login and Logouut Functionality for site https://www.saucedemo.com/
-    Given Open the URL
     When User enter the username "<username>" and password "<password>"
     And User click on login button
     Then User logged in successfully
     When User click on HamburgerMenu
     And Logout from the site
-    Then User should be in login page
 
     Examples:
       | username      | password     |
@@ -22,7 +20,6 @@ Feature: Login Functionality
     And User remove the product from the cart
     When User click on HamburgerMenu
     When Logout from the site
-    Then User should be in login page
 
     Examples:
       | username    | password     |

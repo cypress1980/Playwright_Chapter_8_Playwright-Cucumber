@@ -41,5 +41,10 @@ exports.SauceLoginPage = class SauceLoginPage {
   }
   async userInloginPage() {
     await expect(this.login_button).toBeVisible()
+    //await expect(this.page.getByText('Accepted usernames')).toBeVisible();
+
+    //await expect(this.page.locator('[data-test="login-credentials"]')).toContainText('Accepted usernames are:');
+    //await expect().toContain("Accepted usernames");
+   // await expect(this.login_button).toBeVisible() 
   }
 };
